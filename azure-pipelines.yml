@@ -18,9 +18,7 @@ variables:
   tfstateFile: terraform.tfstate
 
 steps:
-- task: TerraformInstaller@0
-  inputs:
-    terraformVersion: 'latest'
+
 - task: TerraformInstaller@0
   displayName: install Terraform 
   inputs:
