@@ -15,13 +15,16 @@ variables:
   storageAccount: storageacc017
   container: my-files
   anyTfChanges: false
+  tfstateFile: terraform.tfstate
 
 steps:
-
 - task: TerraformInstaller@0
-  displayName: install Terraform v0.12.28
   inputs:
-    terraformVersion: '0.12.28'
+    terraformVersion: 'latest'
+- task: TerraformInstaller@0
+  displayName: install Terraform 
+  inputs:
+    terraformVersion: 'latest'
 
 - task: TerraformTaskV1@0
   displayName: terraform init
@@ -33,6 +36,7 @@ steps:
     backendAzureRmResourceGroupName: '$(resourceGroup)'
     backendAzureRmStorageAccountName: '$(storageAccount)'
     backendAzureRmContainerName: '$(container)'
+    backendAzureRmKey: '$(tfstateFile)'
 
 - task: TerraformTaskV1@0
   displayName: terraform plan -out=tfplan
