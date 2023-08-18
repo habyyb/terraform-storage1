@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'self-hosted'
 
 variables:
   subscription: Visual Studio Enterprise(5af9f377-83c8-4ec8-8520-953f65104850)
